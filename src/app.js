@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
 
+// Controller
+const MovieController = require('./controllers/movies_controller')
+
 // health-check
 app.get('/ping', function (req, res, next) {
   res.json({
@@ -8,6 +11,8 @@ app.get('/ping', function (req, res, next) {
   });
 });
 
+app.get('/search', MovieController.getData)
+app.get('/detail', MovieController.getDetail)
 
 app.use(function onError(err, req, res, next) {
   res
