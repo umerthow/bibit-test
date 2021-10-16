@@ -5,6 +5,11 @@ const response = {
       message: 'success',
       data,
     })
+  },
+  failed: (res, message = 'response failed') => {
+    return res.status(400).send({
+      message
+    })
   }
 }
 

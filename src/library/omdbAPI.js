@@ -4,7 +4,7 @@ const restAPIURL = 'http://www.omdbapi.com/';
 class OMDB_API {
   constructor(key) {
     const instance = axios.create({
-      baseURL: restAPIURL
+      baseURL: restAPIURL,
     });
 
     this.key = key;
@@ -37,7 +37,7 @@ class OMDB_API {
         }
       })
       .join('&');
-     return Object.keys(params).length > 0 ? '?' + paramString : '';
+    return Object.keys(params).length > 0 ? '?' + paramString : '';
   }
 
   /**
@@ -51,7 +51,15 @@ class OMDB_API {
       page,
     });
 
-    console.log('params', params)
+    return this._request(params);
+  }
+
+  getDetailMovie(idMovie) {
+    const params = this._getParamString({
+      apikey: this.key,
+      i: idMovie
+    });
+
     return this._request(params);
   }
 }

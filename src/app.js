@@ -13,7 +13,7 @@ app.get('/ping', function (req, res, next) {
 });
 
 app.get('/search', logging.requestTrack, MovieController.getData)
-app.get('/detail', logging.requestTrack, MovieController.getDetail)
+app.get('/detail/:id', logging.requestTrack, MovieController.getDetail)
 
 app.use(function onError(err, req, res, next) {
   res
