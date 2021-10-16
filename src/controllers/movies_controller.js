@@ -1,12 +1,12 @@
 const response = require('../utils');
 const OMDB_API = require('../library/omdbAPI');
 const omdbKey = 'faf7e5bb';
+const omdbAPi = new OMDB_API(omdbKey);
 
 const MovieController = {
   getData: async (req, res, next) => {
     try {
       const { query: params } = req
-      const omdbAPi = new OMDB_API(omdbKey);
       const result = await omdbAPi.searchMovies(params.movie_name, params.page);
       if (result && result.Response !== 'False' ) {
         const { Search } = result
@@ -20,7 +20,6 @@ const MovieController = {
   getDetail: async (req, res, next) => {
     try {
       const { params } = req
-      const omdbAPi = new OMDB_API(omdbKey);
       const result = await omdbAPi.getDetailMovie(params.id);
 
       if (result && result.Response !== 'False' ) {
