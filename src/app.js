@@ -1,8 +1,9 @@
 const express = require('express');
 const app = express();
+const logging = require('./middleware/log')
 
 // Controller
-const MovieController = require('./controllers/movies_controller')
+const MovieController = require('./controllers/movies_controller');
 
 // health-check
 app.get('/ping', function (req, res, next) {
@@ -11,8 +12,8 @@ app.get('/ping', function (req, res, next) {
   });
 });
 
-app.get('/search', MovieController.getData)
-app.get('/detail', MovieController.getDetail)
+app.get('/search', logging.requestTrack, MovieController.getData)
+app.get('/detail', logging.requestTrack, MovieController.getDetail)
 
 app.use(function onError(err, req, res, next) {
   res
