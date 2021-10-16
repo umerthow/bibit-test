@@ -15,6 +15,15 @@ app.get('/ping', function (req, res, next) {
 app.get('/search', logging.requestTrack, MovieController.getData)
 app.get('/detail/:id', logging.requestTrack, MovieController.getDetail)
 
+// falltrough 404
+app.use((req, res, next) => {
+  res.status(404)
+  res.send({
+    message: 'Api not found'
+  })
+})
+
+// error handler
 app.use(function onError(err, req, res, next) {
   res
     .status(500)

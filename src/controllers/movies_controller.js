@@ -6,10 +6,10 @@ const omdbAPi = new OMDB_API(omdbKey);
 const MovieController = {
   getData: async (req, res, next) => {
     try {
-      const { query: params } = req
+      const { query: params } = req;
       const result = await omdbAPi.searchMovies(params.movie_name, params.page);
-      if (result && result.Response !== 'False' ) {
-        const { Search } = result
+      if (result && result.Response !== 'False') {
+        const { Search } = result;
         return response.success(res, Search);
       }
       return response.failed(res, result.Error);
@@ -19,15 +19,12 @@ const MovieController = {
   },
   getDetail: async (req, res, next) => {
     try {
-      const { params } = req
+      const { params } = req;
       const result = await omdbAPi.getDetailMovie(params.id);
-
-      if (result && result.Response !== 'False' ) {
+      if (result && result.Response !== 'False') {
         return response.success(res, result);
-      } else {
-        return response.failed(res, result.Error);
       }
-      
+      return response.failed(res, result.Error);
     } catch (error) {
       next(error);
     }
