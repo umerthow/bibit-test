@@ -21,7 +21,7 @@ const MovieController = {
     try {
       const { params } = req
       const omdbAPi = new OMDB_API(omdbKey);
-      const result = await omdbAPi.getDetailMovie('33e');
+      const result = await omdbAPi.getDetailMovie(params.id);
 
       if (result && result.Response !== 'False' ) {
         return response.success(res, result);
