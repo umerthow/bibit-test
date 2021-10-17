@@ -1,7 +1,7 @@
+const sinon = require('sinon');
 const { Logs } = require('../../src/models');
 const { createLog } = require('../../src/services/log_service');
 const { scenario01 } = require('../scenario/log_case');
-const sinon = require('sinon');
 const { expect } = require('chai');
 
 describe('Log - creation', () => {
