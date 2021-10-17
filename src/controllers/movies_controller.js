@@ -15,8 +15,13 @@ const MovieController = {
       }
 
       const data = await movieService.search(params)
-      return response.success(res, data);
 
+      if (data.success) {
+        return response.success(res, data);
+      } else {
+        return response.failed(res, data.error);
+      }
+     
     } catch (error) {
       next(error);
     }
@@ -25,7 +30,11 @@ const MovieController = {
     try {
       const { params } = req;
       const data = await movieService.detailMovieById(params.id)
-      return response.success(res, data);
+      if (data.success) {
+        return response.success(res, data.data);
+      } else {
+        return response.failed(res, data.error);
+      }
       
     } catch (error) {
       next(error);
