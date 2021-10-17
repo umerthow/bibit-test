@@ -4,7 +4,7 @@ const { createLog } = require('../../src/services/log_service');
 const { scenario01 } = require('../scenario/log_case');
 const { expect } = require('chai');
 
-describe('Log - creation', () => {
+describe('Log - creation case', () => {
   it('Should return success create log', async () => {
     const mockLog = sinon.mock(Logs);
     const expectation = mockLog.expects('create');
