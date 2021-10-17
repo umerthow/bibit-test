@@ -6,7 +6,7 @@ const logging = require('./middleware/log')
 const MovieController = require('./controllers/movies_controller');
 
 // health-check
-app.get('/ping', function (req, res, next) {
+app.get('/', function (req, res, next) {
   res.json({
     status: 'OK',
   });
