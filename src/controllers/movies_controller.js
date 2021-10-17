@@ -24,12 +24,7 @@ const MovieController = {
   getDetail: async (req, res, next) => {
     try {
       const { params } = req;
-      const data = await movieService.search(params.id)
-
-      if (!params.id) {
-        return response.failed(res, 'Please provide IMDb ID! eq:`tt2355709` ');
-      }
-      
+      const data = await movieService.detailMovieById(params.id)
       return response.success(res, data);
       
     } catch (error) {
