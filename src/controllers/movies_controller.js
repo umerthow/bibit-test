@@ -15,7 +15,6 @@ const MovieController = {
       }
 
       const data = await movieService.search(params)
-
       return response.success(res, data);
 
     } catch (error) {
@@ -25,11 +24,14 @@ const MovieController = {
   getDetail: async (req, res, next) => {
     try {
       const { params } = req;
-      const result = await omdbAPi.getDetailMovie(params.id);
-      if (result && result.Response !== 'False') {
-        return response.success(res, result);
+      const data = await movieService.search(params.id)
+
+      if (!params.id) {
+        return response.failed(res, 'Please provide IMDb ID! eq:`tt2355709` ');
       }
-      return response.failed(res, result.Error);
+      
+      return response.success(res, data);
+      
     } catch (error) {
       next(error);
     }

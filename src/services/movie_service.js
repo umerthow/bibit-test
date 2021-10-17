@@ -11,6 +11,14 @@ const MovieService = {
     } else {
      throw Error(result.Error)
     }
+  },
+  detailMovieById: async (id) => {
+    const result = await omdbAPi.getDetailMovie(id);
+    if (result && result.Response !== 'False') {
+      return result
+    } else {
+      throw Error(result.Error)
+    }
   }
 }
 
