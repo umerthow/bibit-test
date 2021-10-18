@@ -17,7 +17,7 @@ const MovieController = {
       const data = await movieService.search(params)
 
       if (data.success) {
-        return response.success(res, data);
+        return response.success(res, data.data);
       } else {
         return response.failed(res, data.error);
       }
