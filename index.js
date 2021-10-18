@@ -1,5 +1,5 @@
 const server = require('./src/app')
 require('dotenv').config()
-server.listen(3000)
+server.listen(process.env.PORT || 5000)
 
 console.log('running..')

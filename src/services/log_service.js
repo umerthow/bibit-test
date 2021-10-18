@@ -1,8 +1,6 @@
 const { Logs } = require('../models/index');
 const LogService = {
   createLog: async (data) => {
-
-    console.log(data)
     const payload = {
       url: data.url,
       params: data.params,
