@@ -1,5 +1,5 @@
 const OMDB_API = require('../library/omdbAPI');
-const omdbKey = 'faf7e5bb';
+const omdbKey = '8a6b8b7a';
 const omdbAPi = new OMDB_API(omdbKey);
 
 const MovieService = {
