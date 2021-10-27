@@ -1,5 +1,5 @@
 
-# bibit.id[test] - nodeJs Simple API
+nodeJs Simple API
 A simple API by Express and MySQL to access data from 
 [OMDb API](http://www.omdbapi.com/) by Ahmad Umar.
 
